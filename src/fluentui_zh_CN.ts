@@ -366,12 +366,12 @@
     <message>
         <location filename="qhotkey/qhotkey.cpp" line="294"/>
         <source>Failed to register %1. Error: %2</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">注册热键 %1 失败。错误：%2</translation>
     </message>
     <message>
         <location filename="qhotkey/qhotkey.cpp" line="314"/>
         <source>Failed to unregister %1. Error: %2</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">注销热键 %1 失败。错误：%2</translation>
     </message>
 </context>
 </TS>
