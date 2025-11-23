@@ -36,7 +36,7 @@ static std::unique_ptr<QFile> g_logFile = nullptr;
 static std::unique_ptr<QTextStream> g_logStream = nullptr;
 static QMutex g_logMutex;
 
-static int g_logLevel = 4;
+static int g_logLevel = 4;//小于该值的打印
 
 std::map<QtMsgType, int> logLevelMap = {
     {QtFatalMsg,    0},
@@ -196,7 +196,7 @@ void Log::setup(char *argv[], const QString &app, int level) {
         logDir.mkpath(logDirPath);
     }
     g_file_path = logDir.filePath(logFileName);
-    qInstallMessageHandler(messageHandler);
+    qInstallMessageHandler(messageHandler); //安装Qt打印处理函数
     qInfo() << "===================================================";
     qInfo() << "[AppName]" << g_app;
     qInfo() << "[AppVersion]" << APPLICATION_VERSION;

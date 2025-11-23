@@ -27,7 +27,7 @@ if (FLUENTUI_BUILD_STATIC_LIB)
 endif ()
 
 #编译参数设置
-option(FLUENTUI_BUILD_STATIC_LIB "Build static library." OFF)
+option(FLUENTUI_BUILD_STATIC_LIB "Build static library." OFF) #如果变量已经有值 该命令什么也不做
 
 #导入Qt相关依赖包
 find_package(QT NAMES Qt6 Qt5 REQUIRED COMPONENTS Core Quick Qml Widgets PrintSupport)
@@ -37,14 +37,14 @@ set(QT_SDK_DIR "${Qt${QT_VERSION_MAJOR}_DIR}/../../..")
 cmake_path(SET QT_SDK_DIR NORMALIZE ${QT_SDK_DIR})
 
 #设置QML插件输出目录，可以通过外部设置，如果外部没有设置就默认到<QT_SDK_DIR_PATH>\qml\FluentUI目录下
-set(FLUENTUI_QML_PLUGIN_DIRECTORY "" CACHE PATH "Path to FluentUI plugin")
+set(FLUENTUI_QML_PLUGIN_DIRECTORY "${CMAKE_HOME_DIRECTORY}/generate_qml/FluentUI" CACHE PATH "Path to FluentUI plugin")
 if (NOT FLUENTUI_QML_PLUGIN_DIRECTORY)
     set(FLUENTUI_QML_PLUGIN_DIRECTORY ${QT_SDK_DIR}/qml/FluentUI)
 endif ()
 
 #国际化
-find_program(QT_LUPDATE NAMES lupdate)
-find_program(QT_LRELEASE NAMES lrelease)
+find_program(QT_LUPDATE NAMES lupdate)    #`lupdate`：从源代码提取包含的翻译字符串，生成或更新 文件 `.ts`
+find_program(QT_LRELEASE NAMES lrelease)  #`lrelease`：将 文件编译成 二进制文件，以供 Qt 程序在运行时加载使用 `.ts``.qm`
 if (NOT EXISTS ${CMAKE_CURRENT_LIST_DIR}/fluentui_en_US.qm)
     execute_process(COMMAND ${QT_LUPDATE} ${CMAKE_CURRENT_LIST_DIR} -ts fluentui_en_US.ts WORKING_DIRECTORY ${CMAKE_CURRENT_LIST_DIR})
     execute_process(COMMAND ${QT_LRELEASE} fluentui_en_US.ts WORKING_DIRECTORY ${CMAKE_CURRENT_LIST_DIR})

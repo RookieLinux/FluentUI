@@ -32,6 +32,8 @@ FluStatusLayout {
     function reload(){
         var timestamp = Date.now();
         loader.source = control.source+"?"+timestamp
+        //"?" - URL查询参数的分隔符  通过在URL后添加唯一的时间戳参数，
+        // 确保每次重新加载时都获取最新的资源
     }
     function itemLodaer(){
         return loader

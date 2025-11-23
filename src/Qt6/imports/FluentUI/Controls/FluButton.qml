@@ -31,15 +31,15 @@ Button {
         }
     }
     Accessible.role: Accessible.Button
-    Accessible.name: control.text
+    Accessible.name: control.text //元素的名称或标签，屏幕阅读器通常会朗读给用户听的内容 例如:“保存”
     Accessible.description: contentDescription
-    Accessible.onPressAction: control.clicked()
+    Accessible.onPressAction: control.clicked() //处理按压动作
     id: control
     enabled: !disabled
     verticalPadding: 0
     horizontalPadding:12
     font:FluTextStyle.Body
-    focusPolicy:Qt.TabFocus
+    focusPolicy:Qt.TabFocus //只能通过Tab键获取焦点
     background: FluControlBackground{
         implicitWidth: 30
         implicitHeight: 30

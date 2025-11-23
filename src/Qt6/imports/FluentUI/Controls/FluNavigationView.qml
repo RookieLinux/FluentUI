@@ -74,7 +74,7 @@ Item {
                         if(itemFooter.visible !== true){
                             continue
                         }
-                        var objEmpty = comEmpty.createObject(items,{_idx:_idx});
+                        var objEmpty = comEmpty.createObject(items,{_idx:_idx});//parent and property
                         itemFooter._idx = _idx;
                         data.push(objEmpty)
                         _idx++

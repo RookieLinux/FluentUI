@@ -50,3 +50,4 @@ public:                                                                         
                                                                                                    \
 private:                                                                                           \
     TYPE _##M;
+//属性文档 https://doc.qt.io/qt-6/properties.html

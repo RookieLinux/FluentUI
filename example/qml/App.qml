@@ -46,8 +46,8 @@ FluLauncher {
             "/pageWindow":"qrc:/example/qml/window/PageWindow.qml",
             "/hotkey":"qrc:/example/qml/window/HotkeyWindow.qml"
         }
-        var args = Qt.application.arguments
-        if(args.length>=2 && args[1].startsWith("-crashed=")){
+        var args = Qt.application.arguments //返回一个字符串数组
+        if(args.length>=2 && args[1].startsWith("-crashed=")){ //js函数判断字符串是否以指定子串开头
             FluRouter.navigate("/crash",{crashFilePath:args[1].replace("-crashed=","")})
         }else{
             FluRouter.navigate("/")

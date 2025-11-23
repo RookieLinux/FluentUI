@@ -85,11 +85,12 @@ int main(int argc, char *argv[]) {
     qmlRegisterType<DataGenerator>(uri, major, minor, "DataGenerator");
 
     QQmlApplicationEngine engine;
+    engine.addImportPath("/home/rookie/GitProjects/FluentUI/generate_qml");//增加自定义qml模块
     TranslateHelper::getInstance()->init(&engine);
-    engine.rootContext()->setContextProperty("AppInfo", AppInfo::getInstance());
-    engine.rootContext()->setContextProperty("SettingsHelper", SettingsHelper::getInstance());
-    engine.rootContext()->setContextProperty("InitializrHelper", InitializrHelper::getInstance());
-    engine.rootContext()->setContextProperty("TranslateHelper", TranslateHelper::getInstance());
+    engine.rootContext()->setContextProperty("AppInfo", AppInfo::getInstance());//版本信息
+    engine.rootContext()->setContextProperty("SettingsHelper", SettingsHelper::getInstance());//.ini文件
+    engine.rootContext()->setContextProperty("InitializrHelper", InitializrHelper::getInstance());//根据example/res/template/*.in文件生成example/src下部分文件
+    engine.rootContext()->setContextProperty("TranslateHelper", TranslateHelper::getInstance());//重新加载.qm文件 实现不同语言
     engine.rootContext()->setContextProperty("Network", Network::getInstance());
 #ifdef FLUENTUI_BUILD_STATIC_LIB
     FluentUI::registerTypes(&engine);
@@ -105,7 +106,7 @@ int main(int argc, char *argv[]) {
     engine.load(url);
     const int exec = QApplication::exec();
     if (exec == 931) {
-        QProcess::startDetached(qApp->applicationFilePath(), qApp->arguments());
+        QProcess::startDetached(qApp->applicationFilePath(), qApp->arguments());//创建独立的进程
     }
     return exec;
 }

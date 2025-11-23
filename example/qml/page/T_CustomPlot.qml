@@ -32,9 +32,9 @@ FluPage{
         }
     }
     Timer {
-        running: true
-        repeat: true
-        interval: 20
+        running: true //立即开始
+        repeat: true  //重复执行
+        interval: 20  //20ms间隔
         property int data: 60
         onTriggered: {
             data = data - 1

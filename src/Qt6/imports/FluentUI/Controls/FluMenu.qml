@@ -12,10 +12,10 @@ T.Menu {
     implicitHeight: Math.max(implicitBackgroundHeight + topInset + bottomInset,
                              contentHeight + topPadding + bottomPadding)
     margins: 0
-    overlap: 1
+    overlap: 1 //与父项水平重叠像素 cascade:true时才有效(级联子菜单)
     spacing: 0
-    delegate: FluMenuItem { }
-    enter: Transition {
+    delegate: FluMenuItem { } //代理
+    enter: Transition { //进入动画
         NumberAnimation {
             property: "opacity"
             from:0
@@ -23,7 +23,7 @@ T.Menu {
             duration: FluTheme.animationEnabled && control.animationEnabled ? 83 : 0
         }
     }
-    exit:Transition {
+    exit:Transition { //退出动画
         NumberAnimation {
             property: "opacity"
             from:1
@@ -33,11 +33,11 @@ T.Menu {
     }
     contentItem: ListView {
         implicitHeight: contentHeight
-        model: control.contentModel
+        model: control.contentModel //动态模型
         interactive: Window.window
                      ? contentHeight + control.topPadding + control.bottomPadding > Window.window.height
-                     : false
-        clip: true
+                     : false //是否使用Flickable交互
+        clip: true //要不要把超出菜单矩形的内容切掉
         currentIndex: control.currentIndex
         ScrollBar.vertical: FluScrollBar{}
     }
@@ -50,10 +50,10 @@ T.Menu {
         radius: 5
         FluShadow{}
     }
-    T.Overlay.modal: Rectangle {
+    T.Overlay.modal: Rectangle {//模态背景遮罩层
         color: FluTools.withOpacity(control.palette.shadow, 0.5)
     }
-    T.Overlay.modeless: Rectangle {
+    T.Overlay.modeless: Rectangle {//非模态背景遮罩层
         color: FluTools.withOpacity(control.palette.shadow, 0.12)
     }
 }
