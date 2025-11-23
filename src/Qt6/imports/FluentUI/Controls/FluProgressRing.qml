@@ -10,7 +10,7 @@ ProgressBar{
     property color color: FluTheme.primaryColor
     property color backgroundColor : FluTheme.dark ? Qt.rgba(99/255,99/255,99/255,1) : Qt.rgba(214/255,214/255,214/255,1)
     id:control
-    indeterminate : true
+    indeterminate : true//是否为不确定进度模式
     clip: true
     background: Rectangle {
         implicitWidth: 56
@@ -42,8 +42,8 @@ ProgressBar{
         Canvas {
             id:canvas
             anchors.fill: parent
-            antialiasing: true
-            renderTarget: Canvas.Image
+            antialiasing: true //抗锯齿
+            renderTarget: Canvas.Image //绘制到图像 提高性能
             property real startAngle: 0
             property real sweepAngle: 0
             SequentialAnimation on startAngle {
@@ -72,9 +72,9 @@ ProgressBar{
                 if(control.indeterminate){
                     ctx.arc(width/2, height/2, d._radius , Math.PI * (startAngle - 90) / 180,  Math.PI * (startAngle - 90 + sweepAngle) / 180)
                 }else{
-                    ctx.arc(width/2, height/2, d._radius , -0.5 * Math.PI , -0.5 * Math.PI + d._progress * 2 * Math.PI)
+                    ctx.arc(width/2, height/2, d._radius , -0.5 * Math.PI , -0.5 * Math.PI + d._progress * 2 * Math.PI)//画圆
                 }
-                ctx.stroke()
+                ctx.stroke() //使用strokeStyle描边当前路径
                 ctx.closePath()
                 ctx.restore()
             }

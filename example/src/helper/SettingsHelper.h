@@ -18,7 +18,7 @@ public:
     SINGLETON(SettingsHelper)
     ~SettingsHelper() override;
     void init(char *argv[]);
-    Q_INVOKABLE void saveDarkMode(int darkModel) {
+    Q_INVOKABLE void saveDarkMode(int darkModel) { //Q_INVOKABLE 可以让QML中调用C++  例如：SettingsHelper.saveDarkMode(1)
         save("darkMode", darkModel);
     }
     Q_INVOKABLE int getDarkMode() {

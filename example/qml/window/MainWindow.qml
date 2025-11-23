@@ -126,14 +126,14 @@ FluWindow {
             axis { x: 0; y: 1; z: 0 }
             angle: flipable.flipAngle
 
-        }
+        }//旋转变化
         states: State {
             PropertyChanges { target: flipable; flipAngle: 180 }
             when: flipable.flipped
-        }
+        }//定义了一个状态:当 flipped 为 true 时,将 flipAngle 改为 180 度
         transitions: Transition {
             NumberAnimation { target: flipable; property: "flipAngle"; duration: 1000 ; easing.type: Easing.OutCubic}
-        }
+        }//过度动画
         back: Item{
             anchors.fill: flipable
             visible: flipable.flipAngle !== 0
@@ -223,9 +223,9 @@ FluWindow {
                     ItemsOriginal.paneItemMenu = nav_item_right_menu
                     ItemsFooter.navigationView = nav_view
                     ItemsFooter.paneItemMenu = nav_item_right_menu
-                    window.setHitTestVisible(nav_view.buttonMenu)
-                    window.setHitTestVisible(nav_view.buttonBack)
-                    window.setHitTestVisible(nav_view.imageLogo)
+                    window.setHitTestVisible(nav_view.buttonMenu)//设置菜单键可点击
+                    window.setHitTestVisible(nav_view.buttonBack)//设置返回键可点击
+                    window.setHitTestVisible(nav_view.imageLogo) //设置logo图像可点击
                     setCurrentIndex(0)
                 }
             }

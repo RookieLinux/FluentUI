@@ -7,9 +7,9 @@ import FluentUI
 FluWindow {
     id:control
     property Component contentDelegate
-    autoVisible: false
+    autoVisible: false //关闭自动可见
     autoCenter: false
-    autoDestroy: true
+    autoDestroy: true //不可见时自动释放资源
     fixSize: true
     Loader{
         anchors.fill: parent
@@ -20,12 +20,12 @@ FluWindow {
             return control.contentDelegate
         }
     }
-    closeListener: function(event){
+    closeListener: function(event){ //拦截窗口关闭事件
         control.visibility = Window.Hidden
-        event.accepted = false
+        event.accepted = false //不继续默认关闭行为
     }
     Connections{
-        target: control.transientParent
+        target: control.transientParent //拥有者或父窗口
         function onVisibilityChanged(){
             if(control.transientParent.visibility === Window.Hidden){
                 control.visibility = Window.Hidden
@@ -35,7 +35,7 @@ FluWindow {
     function showDialog(offsetX=0,offsetY=0){
         var x = transientParent.x + (transientParent.width - width)/2 + offsetX
         var y = transientParent.y + (transientParent.height - height)/2 + offsetY
-        control.stayTop = Qt.binding(function(){return transientParent.stayTop})
+        control.stayTop = Qt.binding(function(){return transientParent.stayTop})//与父窗口置顶行为保持一致
         control.setGeometry(x,y,width,height)
         control.visibility = Window.Windowed
     }

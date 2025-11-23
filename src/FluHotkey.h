@@ -12,7 +12,7 @@ class FluHotkey : public QObject {
     Q_PROPERTY_AUTO(QString, sequence)
     Q_PROPERTY_AUTO(QString, name)
     Q_PROPERTY_READONLY_AUTO(bool, isRegistered)
-    QML_NAMED_ELEMENT(FluHotkey)
+    QML_NAMED_ELEMENT(FluHotkey) //将C++类暴露给qml使用
 public:
     explicit FluHotkey(QObject *parent = nullptr);
     ~FluHotkey();

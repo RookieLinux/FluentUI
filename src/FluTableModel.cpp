@@ -37,7 +37,7 @@ void FluTableModel::clear() {
     endResetModel();
 }
 
-QVariant FluTableModel::getRow(int rowIndex) {
+QVariant FluTableModel::getRow(int rowIndex) const {
     return _rows.at(rowIndex);
 }
 

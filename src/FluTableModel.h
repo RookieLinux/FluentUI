@@ -22,14 +22,14 @@ public:
 
     [[nodiscard]] int columnCount(const QModelIndex &parent = {}) const override;
 
-    [[nodiscard]] QVariant data(const QModelIndex &index,
+    [[nodiscard]] QVariant data(const QModelIndex &index = {},
                                 int role = Qt::DisplayRole) const override;
 
     [[nodiscard]] QHash<int, QByteArray> roleNames() const override;
 
     Q_INVOKABLE void clear();
 
-    Q_INVOKABLE QVariant getRow(int rowIndex);
+    Q_INVOKABLE QVariant getRow(int rowIndex) const;
 
     Q_INVOKABLE void setRow(int rowIndex, QVariant row);
 

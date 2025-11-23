@@ -353,12 +353,12 @@ static inline bool setWindowEffect(HWND hwnd, const QString &key, const bool &en
 }
 
 #endif
-
+//判断当前鼠标光标位置是否在给定的QML组件的可见区域内
 bool containsCursorToItem(QQuickItem *item) {
     if (!item || !item->isVisible()) {
         return false;
     }
-    auto point = item->window()->mapFromGlobal(QCursor::pos());
+    auto point = item->window()->mapFromGlobal(QCursor::pos());//将全局坐标转换到窗口相对坐标
     auto rect = QRectF(item->mapToItem(item->window()->contentItem(), QPointF(0, 0)), item->size());
     if (rect.contains(point)) {
         return true;

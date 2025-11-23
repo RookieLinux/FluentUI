@@ -10,8 +10,9 @@
 #include <utility>
 #include "FluentIconDef.h"
 
-FluApp::FluApp(QObject *parent) : QObject{parent} {
+FluApp::FluApp(QObject *parent) : QObject(parent) {
     _useSystemAppBar = false;
+    _launcher = nullptr;
 }
 
 FluApp::~FluApp() = default;
@@ -20,13 +21,13 @@ void FluApp::init(QObject *launcher, QLocale locale) {
     this->launcher(launcher);
     _locale = std::move(locale);
     _engine = qmlEngine(launcher);
-    _translator = new QTranslator(this);
+    _translator = new QTranslator(this); //使用 QTranslator 来加载生成的 qm 文件，就可以让程序显示指定的语言
     QGuiApplication::installTranslator(_translator);
     const QStringList uiLanguages = _locale.uiLanguages();
     for (const QString &name : uiLanguages) {
         const QString baseName = "fluentui_" + QLocale(name).name();
-        if (_translator->load(":/qt/qml/FluentUI/i18n/" + baseName)) {
-            _engine->retranslate();
+        if (_translator->load(":/qt/qml/FluentUI/i18n/" + baseName)) { //加载qm文件
+            _engine->retranslate();//刷新所有使用标记为翻译的字符串的绑定表达式
             break;
         }
     }

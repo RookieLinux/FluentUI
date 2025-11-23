@@ -12,8 +12,11 @@ list(APPEND CMAKE_MODULE_PATH ${CMAKE_CURRENT_LIST_DIR}/.cmake/)
 
 include(GetGitRevisionDescription)
 
-option(FLUENTUI_BUILD_EXAMPLES "Build FluentUI demo applications." ON)
+option(FLUENTUI_BUILD_EXAMPLES "Build FluentUI demo applications." ON) #option定义的本质是cache变量
 option(FLUENTUI_BUILD_STATIC_LIB "Build static library." OFF)
+
+set(CMAKE_PREFIX_PATH "/opt/Qt/Qt6.6.2/6.6.2/gcc_64/")
+#set(CMAKE_PREFIX_PATH "/opt/Qt/Qt5.15.2/5.15.2/gcc_64/")
 
 find_package(QT NAMES Qt6 Qt5 REQUIRED COMPONENTS Core)
 find_package(Qt${QT_VERSION_MAJOR} REQUIRED COMPONENTS Core)
