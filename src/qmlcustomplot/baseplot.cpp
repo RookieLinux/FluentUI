@@ -13,7 +13,7 @@ BasePlot::BasePlot(QQuickItem *parent)
     : QQuickPaintedItem(parent)
     , m_customPlot(new QCustomPlot())
 {
-    setFlag(QQuickItem::ItemHasContents, true);
+    setFlag(QQuickItem::ItemHasContents, true); //启用内容绘制.
     setAcceptedMouseButtons(Qt::AllButtons);
     setAcceptHoverEvents(true);  
     connect(this, &QQuickPaintedItem::widthChanged, this, &BasePlot::onChartViewSizeChanged);
