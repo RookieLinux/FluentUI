@@ -7,40 +7,46 @@
 
 namespace QmlQCustomPlot
 {
+    BasePlot::BasePlot(QQuickItem *parent)
+        : QQuickPaintedItem(parent)
+        , m_customPlot(new QCustomPlot())
+    {
+        setFlag(QQuickItem::ItemHasContents, true); //启用内容绘制.
+        setAcceptedMouseButtons(Qt::AllButtons);
+        setAcceptHoverEvents(true);
+        // 性能相关：尽可能减少抗锯齿和同步阻塞
+        m_customPlot->setNotAntialiasedElements(QCP::aeAll);
+        m_customPlot->setAntialiasedElements(QCP::AntialiasedElements());
+        m_customPlot->setNoAntialiasingOnDrag(true);
+        // 如需可尝试启用 OpenGL（Qt 版本与平台支持下）：
+        // m_customPlot->setOpenGl(true, 0);
+        connect(this, &QQuickPaintedItem::widthChanged, this, &BasePlot::onChartViewSizeChanged);
+        connect(this, &QQuickPaintedItem::heightChanged, this, &BasePlot::onChartViewSizeChanged);
+        connect(m_customPlot, &QCustomPlot::afterReplot, this, &BasePlot::onChartViewReplot, Qt::UniqueConnection);
+        connect(&m_repaintTimer, &QTimer::timeout, this, &BasePlot::onRepaintTimer);
+        m_repaintTimer.start(m_refreshMs);
+        try {
+            m_xAxis = new Axis(m_customPlot->xAxis, m_customPlot, this);
+            m_x1Axis = new Axis(m_customPlot->xAxis2, m_customPlot, this);
+            m_yAxis = new Axis(m_customPlot->yAxis, m_customPlot, this);
+            m_y1Axis = new Axis(m_customPlot->yAxis2, m_customPlot, this);
+            connect(m_xAxis, &Axis::destroyed, this, [this]{ m_xAxis = nullptr; Q_EMIT xAxisChanged(nullptr); });
+            connect(m_x1Axis, &Axis::destroyed, this, [this]{ m_x1Axis = nullptr; Q_EMIT x1AxisChanged(nullptr);});
+            connect(m_yAxis, &Axis::destroyed, this, [this]{ m_yAxis = nullptr; Q_EMIT yAxisChanged(nullptr); });
+            connect(m_y1Axis, &Axis::destroyed, this, [this]{ m_y1Axis = nullptr; Q_EMIT y1AxisChanged(nullptr);});
+            connect(m_customPlot->xAxis, SIGNAL(rangeChanged(QCPRange)), m_customPlot->xAxis2, SLOT(setRange(QCPRange)));
+            connect(m_customPlot->yAxis, SIGNAL(rangeChanged(QCPRange)), m_customPlot->yAxis2, SLOT(setRange(QCPRange)));
 
-
-BasePlot::BasePlot(QQuickItem *parent)
-    : QQuickPaintedItem(parent)
-    , m_customPlot(new QCustomPlot())
-{
-    setFlag(QQuickItem::ItemHasContents, true);
-    setAcceptedMouseButtons(Qt::AllButtons);
-    setAcceptHoverEvents(true);  
-    connect(this, &QQuickPaintedItem::widthChanged, this, &BasePlot::onChartViewSizeChanged);
-    connect(this, &QQuickPaintedItem::heightChanged, this, &BasePlot::onChartViewSizeChanged);   
-    connect(m_customPlot, &QCustomPlot::afterReplot, this, &BasePlot::onChartViewReplot, Qt::UniqueConnection);
-    try {
-        m_xAxis = new Axis(m_customPlot->xAxis, m_customPlot, this);
-        m_x1Axis = new Axis(m_customPlot->xAxis2, m_customPlot, this);
-        m_yAxis = new Axis(m_customPlot->yAxis, m_customPlot, this);
-        m_y1Axis = new Axis(m_customPlot->yAxis2, m_customPlot, this);
-        connect(m_xAxis, &Axis::destroyed, this, [this]{ m_xAxis = nullptr; Q_EMIT xAxisChanged(nullptr); });
-        connect(m_x1Axis, &Axis::destroyed, this, [this]{ m_x1Axis = nullptr; Q_EMIT x1AxisChanged(nullptr);});
-        connect(m_yAxis, &Axis::destroyed, this, [this]{ m_yAxis = nullptr; Q_EMIT yAxisChanged(nullptr); });
-        connect(m_y1Axis, &Axis::destroyed, this, [this]{ m_y1Axis = nullptr; Q_EMIT y1AxisChanged(nullptr);});
-        connect(m_customPlot->xAxis, SIGNAL(rangeChanged(QCPRange)), m_customPlot->xAxis2, SLOT(setRange(QCPRange)));
-        connect(m_customPlot->yAxis, SIGNAL(rangeChanged(QCPRange)), m_customPlot->yAxis2, SLOT(setRange(QCPRange)));
-   
+        }
+        catch(const std::exception &e) {
+            qCritical() << e.what();
+            m_xAxis = nullptr;
+            m_x1Axis = nullptr;
+            m_yAxis = nullptr;
+            m_y1Axis = nullptr;
+        }
+        update();
     }
-    catch(const std::exception &e) {
-        qCritical() << e.what();
-        m_xAxis = nullptr;
-        m_x1Axis = nullptr;
-        m_yAxis = nullptr;
-        m_y1Axis = nullptr;
-    }
-    update();
-}
 
     BasePlot::~BasePlot()
     {

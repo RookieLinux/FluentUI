@@ -351,7 +351,7 @@
     <message>
         <location filename="qml/global/ItemsOriginal.qml" line="220"/>
         <source>BubbleBox</source>
-        <translation type="unfinished">气泡框</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="qml/global/ItemsOriginal.qml" line="228"/>
@@ -472,7 +472,7 @@
     <message>
         <location filename="qml/global/ItemsOriginal.qml" line="350"/>
         <source>ParallaxView</source>
-        <translation type="unfinished">视差视图</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="qml/global/ItemsOriginal.qml" line="358"/>
@@ -556,46 +556,51 @@
     </message>
     <message>
         <location filename="qml/global/ItemsOriginal.qml" line="454"/>
+        <source>QCustomPlot2</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="qml/global/ItemsOriginal.qml" line="460"/>
         <source>QRCode</source>
         <translation type="unfinished">二维码</translation>
     </message>
     <message>
-        <location filename="qml/global/ItemsOriginal.qml" line="460"/>
+        <location filename="qml/global/ItemsOriginal.qml" line="466"/>
         <source>Tour</source>
         <translation type="unfinished">漫游式引导</translation>
     </message>
     <message>
-        <location filename="qml/global/ItemsOriginal.qml" line="466"/>
+        <location filename="qml/global/ItemsOriginal.qml" line="472"/>
         <source>Timeline</source>
         <translation type="unfinished">时间轴</translation>
     </message>
     <message>
-        <location filename="qml/global/ItemsOriginal.qml" line="472"/>
-        <source>Pinyin</source>
-        <translation type="unfinished">拼音</translation>
-    </message>
-    <message>
         <location filename="qml/global/ItemsOriginal.qml" line="478"/>
-        <source>CountTimer</source>
-        <translation type="unfinished">计时器</translation>
+        <source>Pinyin</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="qml/global/ItemsOriginal.qml" line="484"/>
+        <source>CountTimer</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="qml/global/ItemsOriginal.qml" line="490"/>
         <source>Captcha</source>
         <translation type="unfinished">验证码</translation>
     </message>
     <message>
-        <location filename="qml/global/ItemsOriginal.qml" line="490"/>
+        <location filename="qml/global/ItemsOriginal.qml" line="496"/>
         <source>Network</source>
         <translation type="unfinished">网络</translation>
     </message>
     <message>
-        <location filename="qml/global/ItemsOriginal.qml" line="497"/>
+        <location filename="qml/global/ItemsOriginal.qml" line="503"/>
         <source>Remote Loader</source>
         <translation type="unfinished">远程加载</translation>
     </message>
     <message>
-        <location filename="qml/global/ItemsOriginal.qml" line="511"/>
+        <location filename="qml/global/ItemsOriginal.qml" line="517"/>
         <source>Hot Loader</source>
         <translation type="unfinished">热加载</translation>
     </message>
@@ -604,7 +609,7 @@
         <translation type="obsolete">3D</translation>
     </message>
     <message>
-        <location filename="qml/global/ItemsOriginal.qml" line="517"/>
+        <location filename="qml/global/ItemsOriginal.qml" line="523"/>
         <source>Test Crash</source>
         <translation type="unfinished">测试崩溃</translation>
     </message>
@@ -948,22 +953,22 @@ Updated content:
         <location filename="qml/page/T_BubbleBox.qml" line="10"/>
         <location filename="qml/page/T_BubbleBox.qml" line="97"/>
         <source>BubbleBox</source>
-        <translation type="unfinished">气泡框</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="qml/page/T_BubbleBox.qml" line="23"/>
         <source>bubblebox offset:</source>
-        <translation type="unfinished">气泡框偏移：</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="qml/page/T_BubbleBox.qml" line="35"/>
         <source>traingle offset:</source>
-        <translation type="unfinished">三角形偏移：</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="qml/page/T_BubbleBox.qml" line="47"/>
         <source>direction:</source>
-        <translation type="unfinished">方向：</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="qml/page/T_BubbleBox.qml" line="55"/>
@@ -1221,7 +1226,7 @@ Updated content:
     <message>
         <location filename="qml/page/T_Carousel.qml" line="38"/>
         <source>Play orientation:</source>
-        <translation type="unfinished">轮播方向：</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="qml/page/T_Carousel.qml" line="46"/>
@@ -1236,7 +1241,7 @@ Updated content:
     <message>
         <location filename="qml/page/T_Carousel.qml" line="56"/>
         <source>Indicator position:</source>
-        <translation type="unfinished">指示器位置：</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="qml/page/T_Carousel.qml" line="63"/>
@@ -1244,14 +1249,14 @@ Updated content:
         <translation type="unfinished">上</translation>
     </message>
     <message>
-        <location filename="qml/page/T_Carousel.qml" line="69"/>
-        <source>right</source>
-        <translation type="unfinished">右</translation>
-    </message>
-    <message>
         <location filename="qml/page/T_Carousel.qml" line="66"/>
         <source>bottom</source>
         <translation type="unfinished">下</translation>
+    </message>
+    <message>
+        <location filename="qml/page/T_Carousel.qml" line="69"/>
+        <source>right</source>
+        <translation type="unfinished">右</translation>
     </message>
     <message>
         <location filename="qml/page/T_Carousel.qml" line="72"/>
@@ -1305,17 +1310,17 @@ Updated content:
     <message>
         <location filename="qml/page/T_CheckBox.qml" line="104"/>
         <source>Using a 3-state CheckBox</source>
-        <translation type="unfinished">使用三状态复选框</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="qml/page/T_CheckBox.qml" line="113"/>
         <source>Select all</source>
-        <translation type="unfinished">选中全部</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="qml/page/T_CheckBox.qml" line="120"/>
         <source>Option %1</source>
-        <translation type="unfinished">选项 %1</translation>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -1457,22 +1462,22 @@ Updated content:
     <message>
         <location filename="qml/page/T_CountTimer.qml" line="10"/>
         <source>CountTimer</source>
-        <translation type="unfinished">计时器</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="qml/page/T_CountTimer.qml" line="27"/>
         <source>Countdown milliseconds: %1</source>
-        <translation type="unfinished">毫秒倒计时：%1</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="qml/page/T_CountTimer.qml" line="39"/>
         <source>Countdown seconds: %1</source>
-        <translation type="unfinished">秒倒计时：%1</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="qml/page/T_CountTimer.qml" line="67"/>
         <source>Countup seconds: %1</source>
-        <translation type="unfinished">秒正计时：%1</translation>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -1512,6 +1517,14 @@ Updated content:
     <message>
         <location filename="qml/page/T_CustomPlot.qml" line="10"/>
         <source>QCustomPlot</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>T_CustomPlot2</name>
+    <message>
+        <location filename="qml/page/T_CustomPlot2.qml" line="10"/>
+        <source>QCustomPlot2</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -2171,32 +2184,32 @@ My only desire is to be permitted to drive out the traitors and restore the Han.
     <message>
         <location filename="qml/page/T_ParallaxView.qml" line="10"/>
         <source>ParallaxView</source>
-        <translation type="unfinished">视差视图</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="qml/page/T_ParallaxView.qml" line="22"/>
         <source>Background size mode:</source>
-        <translation type="unfinished">背景尺寸模式：</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="qml/page/T_ParallaxView.qml" line="30"/>
         <source>Auto</source>
-        <translation type="unfinished">自适应</translation>
+        <translation type="unfinished">自动</translation>
     </message>
     <message>
         <location filename="qml/page/T_ParallaxView.qml" line="34"/>
         <source>Cover</source>
-        <translation type="unfinished">完全覆盖</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="qml/page/T_ParallaxView.qml" line="38"/>
         <source>Fixed</source>
-        <translation type="unfinished">固定</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="qml/page/T_ParallaxView.qml" line="46"/>
         <source>Speed:</source>
-        <translation type="unfinished">视差滚动速度：</translation>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -2213,28 +2226,28 @@ My only desire is to be permitted to drive out the traitors and restore the Han.
     <message>
         <location filename="qml/page/T_Pinyin.qml" line="10"/>
         <source>Pinyin</source>
-        <translation type="unfinished">拼音</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="qml/page/T_Pinyin.qml" line="47"/>
         <source>[pinyin-pro document](https://pinyin-pro.cn/guide/compare.html)</source>
-        <translation type="unfinished">[pinyin-pro文档](https://pinyin-pro.cn/guide/compare.html)</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="qml/page/T_Pinyin.qml" line="89"/>
         <location filename="qml/page/T_Pinyin.qml" line="151"/>
         <source>Input Chinese or Pinyin</source>
-        <translation type="unfinished">输入汉字或拼音</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="qml/page/T_Pinyin.qml" line="170"/>
         <source>Matching time: %1</source>
-        <translation type="unfinished">匹配耗时: %1</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="qml/page/T_Pinyin.qml" line="175"/>
         <source>Matching with cache</source>
-        <translation type="unfinished">带缓存匹配</translation>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
