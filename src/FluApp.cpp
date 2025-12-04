@@ -10,9 +10,8 @@
 #include <utility>
 #include "FluentIconDef.h"
 
-FluApp::FluApp(QObject *parent) : QObject(parent) {
+FluApp::FluApp(QObject *parent) : QObject{parent} {
     _useSystemAppBar = false;
-    _launcher = nullptr;
 }
 
 FluApp::~FluApp() = default;
